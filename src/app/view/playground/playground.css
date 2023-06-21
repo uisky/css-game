@@ -1,0 +1,73 @@
+.playground {
+    width: 70%;
+    height: 30vmin;
+    background-color: white;
+    margin: 5vmax auto;
+}
+
+.playground .good {
+    border: 10px solid green;
+}
+
+.playground .bad {
+    border: 10px solid red;
+}
+
+.playground .must-select {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1.0); }
+    100% { transform: scale(0.95); }
+}
+
+.playground h2 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.playground .table {
+    display: flex;
+}
+
+plate {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    text-align: center;
+    border: 3px solid blue;
+    background-color: #eee;
+}
+
+plate.fancy {
+    border: 3px dashed purple;
+}
+
+bento {
+    display: block;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    border: 3px solid green;
+    background-color: #cda;
+}
+
+apple {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 100%;
+}
+
+orange {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: orangered;
+    border-radius: 100%;
+}

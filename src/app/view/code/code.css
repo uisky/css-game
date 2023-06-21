@@ -1,0 +1,12 @@
+.code {
+    width: 80%;
+    background-color: white;
+    height: 60vmin;
+    margin: 5vmin auto;
+}
+
+.code h2 {
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,16 @@
+.levels {
+    width: 100%;
+    background-color: grey;
+    height: 100vmin;
+    position: fixed;
+    z-index: 1;
+}
+
+.levels ul {
+    list-style-type: none;
+}
+
+.levels ul li {
+    padding: 10px 15px;
+    border-bottom: 1px dashed black;
+}
