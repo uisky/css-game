@@ -1,6 +1,7 @@
 import { LevelType, LEVELS } from "./levels";
 import AppModel from "./model"
 import AppView from "./view/app-view";
+import { SolvedState } from './model'
 
 /*
  * Контроллер приложения. Содержит:
@@ -53,13 +54,20 @@ export default class Controller {
         console.log('Correct: ', correct, 'Queried: ', check, 'Result: ', result);
 
         if (result) {
+            this.view.playground.highlight(check!, 'good');
+            this.model.solved.set(String(this.model.currentLevelId), SolvedState.MYSELF);
+            this.model.save();
             // Ну тут по идее нужно перейти на следующий уровень, если он не последний.
             // Для этого у нас есть this.setLevel
-            this.view.playground.highlight(check!, 'good');
         } else {
             // А тут нужно юзеру показать, что он выбрал (это есть в переменной check),
             // и намекнуть, что он мудак залупоглазый
             this.view.playground.highlight(check!, 'bad');
         }
+    }
+
+    resetProgress() {
+        this.model.clearProgress();
+        this.view.levels.render();
     }
 }

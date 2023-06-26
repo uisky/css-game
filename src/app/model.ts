@@ -1,5 +1,9 @@
 import { LEVELS, LevelType } from './levels'
 
+export enum SolvedState {
+    MYSELF = 1,
+    WITH_HINT = 2
+}
 
 /*
  * Модель: все данные приложения.
@@ -15,9 +19,28 @@ export default class AppModel {
     // Current level ID
     currentLevelId: number;
 
+    solved: Map<string, number>;
+
     constructor() {
         this.LEVELS = LEVELS;
         this.currentLevelId = 0;
+        // Загружаем пройденные уровни из LocalStorage
+        const solved = localStorage.rsCssSolved;
+        if (solved) {
+            this.solved = new Map(Object.entries(JSON.parse(solved)));
+        } else {
+            this.solved = new Map();
+        }
+        console.log('Model.solved = ', this.solved);
+    }
+
+    save() {
+        localStorage.rsCssSolved = JSON.stringify(Object.fromEntries(this.solved));
+    }
+
+    clearProgress() {
+        this.solved = new Map();
+        this.save();
     }
 
     // Current level data

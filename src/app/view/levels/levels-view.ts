@@ -8,6 +8,8 @@ const CssClasses = {
 
 export default class LevelsView extends View {
     render() {
+        this.container.innerHTML = '';
+        
         this.container.append(crel('h2', {html: 'Choose level of pain'}));
 
         const ul = document.createElement('ul');
@@ -19,6 +21,12 @@ export default class LevelsView extends View {
             ul.append(li);
         });
         this.container.append(ul);
+
+        const resetBtn = crel('button', {html:'Reset'});
+        resetBtn.onclick = () => {
+            this.controller.resetProgress();
+        }
+        this.container.append(resetBtn);
     }
 
     click(level: number) {
